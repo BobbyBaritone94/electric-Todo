@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.reminderHeading{
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+ #addButton{
+   background-color: #61dafb;
+   border-radius: 80%;
+   padding-left: 20px;
+   padding-right: 20px;
+   margin: 5px;
+   
+ }
+
+ .boxOne {
+   width: 40vw;
+   margin: 5vw;
+   border-style: groove; 
+   padding:20px;
+ }
+
+ form {
+   display:flex;
+   justify-content: center;
+   padding-top: 20px;
+ }
+
+ 
