@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import {useState} from 'react';
+const data = require('../reminders.json')
 
 function Reminders(props) {
 
@@ -9,11 +10,13 @@ let [list,setList] = useState([])
 
 const inputRef= useRef();
 
+
 const addReminder = (event)=>{
     event.preventDefault()
-    const listKey= remNumber+1
-    list.push(<li key={listKey}>{inputRef.current.value} <button onClick={()=>deleteReminder(listKey)}> - </button></li>)
-    setRemNumber(remNumber+1)
+    // const listKey= remNumber+1
+    // list.push(<li key={listKey}>{inputRef.current.value} <button onClick={()=>deleteReminder(listKey)}> - </button></li>)
+    // setRemNumber(remNumber+1)
+    data.reminders.push((<li >{inputRef.current.value} <button onClick={()=>deleteReminder}> - </button></li>))
 }
 
 const deleteReminder = (i)=>{
@@ -26,6 +29,7 @@ const clearList = ()=>{
     setRemNumber(0)
 }
 
+console.log(data)
 const listStyle = {
     display: 'flex',
     justifyContent: 'space-evenly',
@@ -34,6 +38,7 @@ const listStyle = {
 
 //delete reminder needs to be done 
 //Data sheet of reminders 
+//I can pull data from the sheet but need to modify it 
 
     return (
         <div>
@@ -51,7 +56,9 @@ const listStyle = {
             <input ref={inputRef}  type="text"></input>
             </form>
             <ol style={listStyle}>
-                {list}
+                {data.reminders.map((element)=>{
+                   return <li> {element}</li>
+                })}
             </ol>
             </div>
             
